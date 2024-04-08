@@ -1,7 +1,8 @@
 '''Test for models.'''
 
 from django.test import TestCase
-from django.contrib.auth import get_user_model # reference the model directly from the models
+from django.contrib.auth import get_user_model
+
 
 class ModelTests(TestCase):
     '''Test models.'''
