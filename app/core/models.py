@@ -41,3 +41,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+
+class UserSession(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    token = models.CharField(max_length=100)
