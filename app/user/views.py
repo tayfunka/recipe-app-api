@@ -33,12 +33,12 @@ class CreateTokenView(ObtainAuthToken):
         # Attempt to get an existing token for the user
         token, created = Token.objects.get_or_create(user=user)
 
-        # If a token already exists for the user, delete it and create a new one
+        # If a token already exists, delete and create a new one
         if not created:
             token.delete()
             token = Token.objects.create(user=user)
 
-        # Store the token in the database
+        # Store the token
         UserSession.objects.update_or_create(
             user=user, defaults={'token': token.key})
 
